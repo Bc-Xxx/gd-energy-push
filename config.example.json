@@ -1,0 +1,36 @@
+{
+  "platform": {
+    "base_url": "https://gdems.drc.gd.gov.cn/emc/gov-online-docking",
+    "verify_tls": true,
+    "use_environment_proxy": false,
+    "timeout_seconds": 30,
+    "max_retries": 2
+  },
+  "enterprise": {
+    "ascription": "ent",
+    "region": "441900",
+    "enterpriseCode": "请替换为18位统一社会信用代码",
+    "deviceId": "请替换为平台注册返回的deviceId"
+  },
+  "database": {
+    "kind": "odbc",
+    "connection_string": "DRIVER={ODBC Driver 18 for SQL Server};SERVER=127.0.0.1;DATABASE=EnergyDB;UID=user;PWD=password;TrustServerCertificate=yes;",
+    "sql": "SELECT meter_code AS source_key, energy_value AS data_value, stat_time AS stat_date FROM dbo.energy_daily WHERE stat_time = ? AND stat_type = ?",
+    "parameters": [
+      "stat_date",
+      "stat_type"
+    ]
+  },
+  "mapping": {
+    "csv_path": "gd_energy_push/data_code_mapping.example.csv"
+  },
+  "defaults": {
+    "inputType": "1",
+    "statType": "1",
+    "scope": "1",
+    "valid": true
+  },
+  "upload": {
+    "batch_size": 100
+  }
+}

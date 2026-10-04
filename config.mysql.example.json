@@ -1,0 +1,37 @@
+{
+  "platform": {
+    "base_url": "https://gdems.drc.gd.gov.cn/emc/gov-online-docking",
+    "verify_tls": true,
+    "timeout_seconds": 30,
+    "max_retries": 2
+  },
+  "enterprise": {
+    "ascription": "ent",
+    "region": "请替换为6位行政区划代码",
+    "enterpriseCode": "请替换为18位统一社会信用代码",
+    "deviceId": "请替换为省平台deviceId"
+  },
+  "database": {
+    "kind": "mysql",
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "your_mysql_user",
+    "password_env": "GD_ENERGY_MYSQL_PASSWORD",
+    "sql_file": "gd_energy_push/mysql_daily_power_by_space_upload.sql",
+    "parameters": [
+      "stat_date"
+    ]
+  },
+  "mapping": {
+    "csv_path": "gd_energy_push/data_code_mapping.example.csv"
+  },
+  "defaults": {
+    "inputType": "1",
+    "statType": "1",
+    "scope": "1",
+    "valid": true
+  },
+  "upload": {
+    "batch_size": 100
+  }
+}

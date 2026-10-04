@@ -1,0 +1,29 @@
+# IDE / cache
+.idea/
+__pycache__/
+*.pyc
+
+# Runtime artifacts
+logs/
+runs/
+*.log
+platform_config.json
+upload_result.json
+verify_result.json
+
+# Real customer data — never commit
+customers/*
+!customers/example.json
+customer_config_templates/*
+!customer_config_templates/new_customer.json
+!customer_config_templates/README.md
+config.local.json
+config.baoshengxing.json
+config.weifu.example.json
+baoshengxing_*.json
+data_code_mapping.weifu.csv
+create_weifu_*.py
+mysql_weifu_*.sql
+mysql_baoshengxing_*.sql
+scripts/
+一键推送系统说明.md

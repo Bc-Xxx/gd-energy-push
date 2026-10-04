@@ -1,0 +1,59 @@
+{
+  "customer_key": "new_customer",
+  "customer_name": "新客户名称",
+  "platform": {
+    "base_url": "https://gdems.drc.gd.gov.cn/emc/gov-online-docking",
+    "verify_tls": true,
+    "timeout_seconds": 30,
+    "max_retries": 2
+  },
+  "enterprise": {
+    "ascription": "ent",
+    "region": "请填写行政区划代码",
+    "enterpriseCode": "请填写统一社会信用代码",
+    "deviceId": "请填写省平台deviceId"
+  },
+  "myems": {
+    "database": {
+      "kind": "mysql",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "user": "your_mysql_user",
+      "password_env": "GD_ENERGY_MYSQL_PASSWORD",
+      "connect_timeout_seconds": 10,
+      "read_timeout_seconds": 120
+    },
+    "root_space_id": 0,
+    "root_space_name": "请填写MyEMS空间名称",
+    "meter_ids": [],
+    "timezone_offset_hours": 8,
+    "energy_category_id": 1,
+    "energy_category_keywords": ["电", "electric"],
+    "strategies": [
+      "space_input_category_hourly",
+      "meter_hourly",
+      "cumulative_energy_diff"
+    ],
+    "allow_power_integral_fallback": false,
+    "known_total_power_point_ids": []
+  },
+  "upload_item": {
+    "source_key": "ELEC_TOTAL",
+    "dataCode": "请按downloadConfigData确认",
+    "name": "全厂-二次能源-电力-能源消费合计",
+    "inputType": "1",
+    "statType": "1",
+    "scope": "1",
+    "valid": true
+  },
+  "quality": {
+    "minimum_daily_hours": 23,
+    "max_daily_kwh": 9999900000,
+    "max_stale_reading_hours": 30,
+    "reject_future_timestamps": true
+  },
+  "runtime": {
+    "runs_dir": "gd_energy_push/runs",
+    "download_platform_config_before_upload": true
+  }
+}
